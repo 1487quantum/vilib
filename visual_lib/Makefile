@@ -136,7 +136,7 @@ DIRECTORIES=$(sort $(dir $(OBJECTS)))
 # Custom OpenCV support
 ifeq (${CUSTOM_OPENCV_SUPPORT},1)
 	CXX_DEFINES+=-DCUSTOM_OPENCV_SUPPORT
-	CXX_NVCC_INCLUDES+=-I${CUSTOM_OPENCV_INSTALLATION_PATH}/include/ $(shell pkg-config --cflags opencv4)
+	CXX_NVCC_INCLUDES+=-I${CUSTOM_OPENCV_INSTALLATION_PATH}/include/opencv4/ $(shell pkg-config --cflags opencv4)
 	#$(warning ${CXX_NVCC_INCLUDES})
 	CXX_LD_DIRS+=-L${CUSTOM_OPENCV_INSTALLATION_PATH}/lib
 	CXX_LD_FLAGS+=-Wl,-rpath,${CUSTOM_OPENCV_INSTALLATION_PATH}/lib

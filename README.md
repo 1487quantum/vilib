@@ -1,4 +1,5 @@
 # CUDA Visual Library
+<a href="LICENSE" ><img src="https://img.shields.io/github/license/1487quantum/vilib?style=for-the-badge"/></a>
 
 ## Publication
 Please find the paper acompanying this repository on arXiv:
@@ -89,52 +90,6 @@ nvcc --version
 # Copyright (c) 2005-2018 NVIDIA Corporation
 # Built on Sat_Aug_25_21:08:01_CDT_2018
 # Cuda compilation tools, release 10.0, V10.0.130
-```
-
-## How to use
-
-1. Compile the library
-```bash
-# Clean any previous build artifacts
-make clean
-# Compile the shared library
-make solib -j4
-```
-2. Compile the test suite (optional)
-```bash
-# We prepared a test suite for the library
-# that verifies the provided functionalities
-make test -j4
-# Download the dataset: some tests require a dataset
-# We used the Machine Hall 01 from ETH Zürich.
-cd test/images
-# Follow the instructions
-./create_feature_detector_evaluation_data.sh
-# Once the dataset has been acquired successfully,
-# simply run the test suite:
-./test_vilib
-```
-3. Install the library
-```bash
-# Default installation paths :
-# Header files : /usr/local/vilib/include
-# Library files : /usr/local/vilib/lib
-# Clean previous installations
-sudo make uninstall
-# Install the last compiled version
-sudo make install
-```
-4. Accomodate your target application’s Makefile to locate the library
-```bash
-# i ) Compilation stage
-CXX_INCLUDE_DIRS += -I<path to the include directory of the visual lib>
-# ii ) Linking stage
-CXX_LD_DIRS += -L<path to the directory containing libvilib.so>
-CXX_LD_LIBRARIES += -lvilib
-# If , however , the shared library was not installed to a regular
-# library folder :
-CXX_LD_FLAGS += -Wl, -rpath,<path to the directory containing the .so>
-# or modify the LD_LIBRARY_PATH environment variable
 ```
 
 ## Dependencies
@@ -250,4 +205,50 @@ ROS support was made optional [by default it is not required]. However, if you w
 ROS_SUPPORT?=1
 # 2) or just compile accordingly:
 make solib ROS_SUPPORT=1 -j4
+```
+
+## How to use
+
+1. Compile the library
+```bash
+# Clean any previous build artifacts
+make clean
+# Compile the shared library
+make solib -j4
+```
+2. Compile the test suite (optional)
+```bash
+# We prepared a test suite for the library
+# that verifies the provided functionalities
+make test -j4
+# Download the dataset: some tests require a dataset
+# We used the Machine Hall 01 from ETH Zürich.
+cd test/images
+# Follow the instructions
+./create_feature_detector_evaluation_data.sh
+# Once the dataset has been acquired successfully,
+# simply run the test suite:
+./test_vilib
+```
+3. Install the library
+```bash
+# Default installation paths :
+# Header files : /usr/local/vilib/include
+# Library files : /usr/local/vilib/lib
+# Clean previous installations
+sudo make uninstall
+# Install the last compiled version
+sudo make install
+```
+4. Accomodate your target application’s Makefile to locate the library
+```bash
+# i ) Compilation stage
+CXX_INCLUDE_DIRS += -I<path to the include directory of the visual lib>
+# ii ) Linking stage
+CXX_LD_DIRS += -L<path to the directory containing libvilib.so>
+CXX_LD_LIBRARIES += -lvilib
+# If , however , the shared library was not installed to a regular
+# library folder :
+CXX_LD_FLAGS += -Wl, -rpath,<path to the directory containing the .so>
+# or modify the LD_LIBRARY_PATH environment variable
 ```

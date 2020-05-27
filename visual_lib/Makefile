@@ -45,7 +45,8 @@ EIGEN_INSTALLATION_PATH=/usr/include/eigen3
 #
 # Custom OpenCV support (optional)
 # Note: if 0 it will use the OpenCV g++ finds by default
-CUSTOM_OPENCV_SUPPORT=0
+# Would be using OpenCV 4.3.0 compiled from src
+CUSTOM_OPENCV_SUPPORT=1
 CUSTOM_OPENCV_INSTALLATION_PATH=/usr/local/opencv
 #
 # ROS support (optional)
@@ -135,7 +136,7 @@ DIRECTORIES=$(sort $(dir $(OBJECTS)))
 # Custom OpenCV support
 ifeq (${CUSTOM_OPENCV_SUPPORT},1)
 CXX_DEFINES+=-DCUSTOM_OPENCV_SUPPORT
-CXX_NVCC_INCLUDES+=-I${CUSTOM_OPENCV_INSTALLATION_PATH}/include
+CXX_NVCC_INCLUDES+=$(shell pkg-config --cflags opencv4)		# Fix OpenCV header not found issue
 CXX_LD_DIRS+=-L${CUSTOM_OPENCV_INSTALLATION_PATH}/lib
 CXX_LD_FLAGS+=-Wl,-rpath,${CUSTOM_OPENCV_INSTALLATION_PATH}/lib
 CXX_LD_LIBRARIES+=-lopencv_imgproc -lopencv_highgui -lopencv_core              \

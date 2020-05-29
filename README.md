@@ -1,5 +1,5 @@
 # CUDA Visual Library
-<a href="LICENSE" ><img src="https://img.shields.io/github/license/1487quantum/vilib?style=for-the-badge"/></a>
+<a href="LICENSE.txt" ><img src="https://img.shields.io/github/license/1487quantum/vilib?style=for-the-badge"/></a>
 
 ## Publication
 Please find the paper acompanying this repository on arXiv:

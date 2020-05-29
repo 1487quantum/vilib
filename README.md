@@ -27,6 +27,8 @@ $ echo 'export PATH=/usr/local/cuda-10.2/bin${PATH:+:${PATH}}'>> ~/.bashrc
 $ echo 'export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}'>> ~/.bashrc
 ```
 
+> **Note:** This library was tested with OpenCV 4.3 was installed in `/usr/local/opencv`, which was compiled from source.
+
 ### CUDA-enabled desktop computer
 The following guide was written for Ubuntu 18.04, but one should proceed similarly on other OS-es. This guide attempts to install the **latest** CUDA toolkit and driver directly from NVIDA. Through the package manager of your OS (e.g.: apt, yum), you should be able to install an NVIDIA driver and the CUDA toolkit with a *one-liner*.
 

@@ -1,6 +1,8 @@
 # CUDA Visual Library
 <a href="LICENSE.txt" ><img src="https://img.shields.io/github/license/1487quantum/vilib?style=for-the-badge"/></a>
 
+> Modified Makefile (OpenCV path) for Jetson Nano B01 (L4T 4.9.140)
+
 ## Publication
 Please find the paper acompanying this repository on arXiv:
 > Balazs Nagy, Philipp Foehn, Davide Scaramuzza, [Faster than FAST: GPU-Accelerated Frontend for High-Speed VIO](https://arxiv.org/abs/2003.13493), arXiv 2003.13493, March 2020
@@ -15,8 +17,17 @@ functionalities into the following categories:
  * **Feature detection:** various functionalities for feature detection, feature detectors
  * **High-level functionalities:** more sophisticated algorithms for other front-end tasks
 
-## Getting started on a CUDA-enabled desktop computer
+## Getting started
+### Jetson Nano
 
+CUDA is installed by default in Jetson Nano, ensure that the CUDA path is appended to your shell config, if not they would not be able to locate nvcc!
+```
+$ echo '# Append CUDA tools path' >> ~/.bashrc
+$ echo 'export PATH=/usr/local/cuda-10.2/bin${PATH:+:${PATH}}'>> ~/.bashrc
+$ echo 'export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}'>> ~/.bashrc
+```
+
+### CUDA-enabled desktop computer
 The following guide was written for Ubuntu 18.04, but one should proceed similarly on other OS-es. This guide attempts to install the **latest** CUDA toolkit and driver directly from NVIDA. Through the package manager of your OS (e.g.: apt, yum), you should be able to install an NVIDIA driver and the CUDA toolkit with a *one-liner*.
 
 ```sh

@@ -230,6 +230,7 @@ make clean
 make solib -j4
 ```
 2. Compile the test suite (optional)
+> **Ensure that ROS is installed before running the test, as it uses `rosbag`.**
 ```bash
 # We prepared a test suite for the library
 # that verifies the provided functionalities
